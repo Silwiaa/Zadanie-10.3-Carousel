@@ -1,17 +1,20 @@
 $(function() { 
-    var carouselList = $('#carousel ul');
+    var carouselList = $('#carousel ul'),
+        dots = $('.dots ul');
+        
+	//change slide
+    setInterval(changeSlide, 4000);
     
-	//Change slide
-    setInterval(changeSlide, 3000); 
     function changeSlide() {
-        carouselList.animate({'marginLeft':-600}, 500, moveFirstSlide);
+        carouselList.animate({'marginLeft': -600}, 1000, moveFirstSlide);
     }
     
-    //Move first slide
-    function moveFirstSlide () {
+    //move first slide
+    function moveFirstSlide() {
         var firstItem = carouselList.find('li:first'),
             lastItem = carouselList.find('li:last');
+        
         lastItem.after(firstItem);
-        carouselList.css({marginLeft:0});
+        carouselList.css({marginLeft: 0});
     }
 });
